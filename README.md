@@ -9,4 +9,4 @@ Vanilla JS app to convert numbers between bases, returning a calc log based on m
 - Review Converter.js (DRY)
 - Ask for public Review
  - Improve
-- Refactory into a branch using React, Webpack and NPM Scripts
+- Refactory on a branch using React, Webpack and NPM Scripts
