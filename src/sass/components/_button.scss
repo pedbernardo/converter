@@ -1,78 +1,65 @@
-/* ==========================================================================
-   CONSTRUCTOR
-   ========================================================================== */
+// BUTTONS
+$primary: #404040;
+$fab-size: 64px;
+$fab-pos: -$fab-size/2;
 
-%btn-base {
-  font-weight: 300;
-  font-size: .9rem;
+.btn {
   display: inline-block;
   vertical-align: middle;
-  border: 1px solid transparent;
-  padding: .5rem .85rem;
-  background-color: #eee;
-  color: #333;
+  height: 40px;
+  line-height: 40px;
+  
+  background-color: #fff;
+  border-radius: 4px;
+  border: 0;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+
+  color: #555;
+  font-size: .9rem;
+  font-weight: 300;
   text-decoration: none;
-  text-shadow: none;
-  border-radius: 0;
+  white-space: nowrap;
+  
   outline: 0;
   cursor: pointer;
-  transition: all ease .35s;
-  text-decoration: none;
+  transition: all .25s ease;
 
   &:hover {
-    text-decoration: none;
+    color: #6e6e6e;
+    transform: translateY(-1px);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08);
   }
 
-  > .icon {
-    margin-left: .35rem;
-  }
-}
-
-/* ==========================================================================
-   BUTTONS
-   ========================================================================== */
-._btn {
-  @extend %btn-base;
-
-  &:focus,
   &:active {
-    box-shadow: inset 0 1px 3px 2px rgba(0,0,0,.065);
+    color: #555;
+    background-color: #f6f9ff;
+    transform: translateY(1px);
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
   }
-}
+  
+  &.-primary {
+    background-color: $primary;
+    color: #fff;
+  }
 
-._btn-return {
-  cursor: pointer;
-  text-align: center;
-  background-color: #e2e2e2;
-  padding: .85rem;
-  position: relative;
-  color: #505050;
-  font-weight: 700;
-  transition: all .2s linear;
+  &.-fab {
+    height: 45px;
+    bottom: $fab-pos;
+    border-radius: 50%;
+    
+    @include rectangle( $fab-size );
+    @include center-h-absolute;
 
-  &:hover {
-    text-decoration: none;
-    color: #505050;
-    background-color: darken(#e2e2e2, 3%);
-
-    &:after {
-      left: .85rem;
+    &:hover {
+      bottom: $fab-pos + 2px;
+    }
+    &:active {
+      bottom: $fab-pos;
     }
   }
-
-  &:after {
-    position: absolute;
-    left: .95rem;
-    font-size: 1rem;
-    font-family: "Ionicons";
-    content: "\f3cf";
-    transition: all .1s linear;
-  }
 }
 
-/* ==========================================================================
-   THEMES
-   ========================================================================== */
+// ==========================================================================
 ._btn._btn--primary {
   background-color: $orange;
   border: 1px solid darken( $orange, 2.5% );

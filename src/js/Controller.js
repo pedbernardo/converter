@@ -77,6 +77,12 @@ const Controller = {
     }
   },
 
+  Form: {
+    Enable: function( form ) {
+      form.classList.add('-is-active');
+    }
+  },
+
   Convert: function( sets ) {
     var results = [];
 

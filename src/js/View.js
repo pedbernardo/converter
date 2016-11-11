@@ -6,6 +6,7 @@ const View = {
     this.number      = document.querySelector('[name="number"]');
     this.convertFrom = document.querySelectorAll('[name="numberBase"]');
     this.convertTo   = document.querySelectorAll('[name="convertBase"]');
+    this.form        = document.querySelector('.converter-form > .form');
     
     View.Events();
   },
@@ -18,6 +19,7 @@ const View = {
         View.Controller.Number.Enable( View.number );
         View.Controller.ConvertTo.Enable( View.convertTo );
         View.Controller.ConvertTo.Set( View.convertTo );
+        View.Controller.Form.Enable( View.form );
       });
     });
     
@@ -35,7 +37,6 @@ const View = {
       if ( this.value )
         this.value = View.Controller.Number.Validate( this.value );
       View.Controller.Number.Set( this.value );
-      console.log( this.value );
     });
     
     View.convertTo.forEach( function( input ) {

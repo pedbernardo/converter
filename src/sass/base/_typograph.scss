@@ -1,29 +1,53 @@
+// TYPOGRAPH
+
 body {
   font-family: $font-primary;
+  font-size: 16px;
 }
 
-._title {
-  font-size: $title-size;
-  margin-bottom: $title-margin;
-  font-family: $font-secondary;
-}
+.title {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
 
-._title--underscore {
-  position: relative;
-
-  &:after {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: $orange;
-    width: 90px;
+  &.-underlined:after {
     height: 5px;
-    content: '';
+    width: 90px;
     bottom: -1rem;
   }
 }
 
-._subtitle {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
+.subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: .85rem;
+  text-align: center;
+  color: #555;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  &.-underlined:after { 
+    height: 2px;
+    width: 50px;
+    bottom: -.65rem;
+  }
+}
+
+.title, .subtitle {
+  &.-underlined {
+    position: relative;
+    text-align: center;
+    margin-bottom: 3rem;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: $light-blue;
+    }
+  }
 }

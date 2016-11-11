@@ -1,26 +1,17 @@
-/* ==========================================================================
-   HELPERS
-   ========================================================================== */
+// HELPERS
 @import "helpers/variables";
 @import "helpers/mixins";
 @import "helpers/animation";
 
-/* ==========================================================================
-   BASE
-   ========================================================================== */
+// BASE
 @import "base/reset";
 @import "base/typograph";
 
-/* ==========================================================================
-   COMPONENTS
-   ========================================================================== */
+// COMPONENTS
 @import "components/card";
+@import "components/form";
 @import "components/button";
-@import "components/nav";
-@import "components/sidenav";
-@import "components/stack";
+@import "components/button-group";
 
-/* ==========================================================================
-   LAYOUT
-   ========================================================================== */
-@import "layout/home";
+// LAYOUT
+@import "layout/app";

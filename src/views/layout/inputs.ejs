@@ -1,33 +1,53 @@
-<section class="section">
-  <div class="form">
+<section class="section inputs -is-active">
 
-    <div class="group">
-      <label>
-        <input name="numberBase" value="bin" type="radio"> Binary
+  <div class="card converter-form">
+    <h3 class="subtitle -underlined">Select the number <strong>base</strong></h3>
+    <div class="btn-group">
+      <label class="item">
+        <input name="numberBase" value="bin" type="radio">
+        <span class="icon">2</span>
+        <span class="label">Bin</span>
       </label>
-      <label>
-        <input name="numberBase" value="dec" type="radio"> Decimal
+      <label class="item">
+        <input name="numberBase" value="dec" type="radio">
+        <span class="icon">10</span>
+        <span class="label">Dec</span>
       </label>
-      <label>
-        <input name="numberBase" value="hex" type="radio"> Hexadecimal
+      <label class="item">
+        <input name="numberBase" value="hex" type="radio">
+        <span class="icon">16</span>
+        <span class="label">Hex</span>
       </label>
     </div>
 
-    <input name="number" type="text" placeholder="Number..." disabled>
+    <div class="form">
+      
+      <input class="input -big -centerd form-group" name="number" type="text" placeholder="Enter the Number..." disabled>
+      
+      <h3 class="subtitle -underlined">To which bases do you want to <strong>convert</strong>?</h3>
+      
+      <div class="btn-group -secondary">
+        <label class="item">
+          <input name="convertBase" value="bin" type="checkbox" disabled>
+          <span class="icon" data-content="2"></span>
+          <span class="label">Bin</span>
+        </label>
+        <label class="item">
+          <input name="convertBase" value="dec" type="checkbox" disabled>
+          <span class="icon" data-content="10"></span>
+          <span class="label">Dec</span>
+        </label>
+        <label class="item">
+          <input name="convertBase" value="hex" type="checkbox" disabled>
+          <span class="icon" data-content="16"></span>
+          <span class="label">Hex</span>
+        </label>
+      </div>
 
-    <div class="group">
-      <label>
-        <input name="convertBase" value="bin" type="checkbox" disabled> Binary
-      </label>
-      <label>
-        <input name="convertBase" value="dec" type="checkbox" disabled> Decimal
-      </label>
-      <label>
-        <input name="convertBase" value="hex" type="checkbox" disabled> Hexadecimal
-      </label>
     </div>
-
-    <button class="js-convert">Convert</button>
-
+    
+    <button class="btn -primary -fab js-convert convert-btn icon ion-ios-arrow-forward"></button>
+    
   </div>
+
 </section>
