@@ -1,0 +1,250 @@
+@mixin make-input {
+  border: 1px solid #e5e5e5;
+  box-shadow: none;
+  border-radius: 0;
+  min-height: 32px;
+  min-width: 300px !important;
+  // to override orquestra inline default width
+  resize: vertical;
+
+  &:hover {
+    border-color: #ccc;
+  }
+  &:focus {
+    border-color: lighten($orange, 15%);
+  }
+}
+
+.is-required {
+  position: relative;
+  display: inline-block;
+
+  &:before {
+    position: absolute;
+    content: '*';
+    right: -8px;
+    color: #e43232;
+    font-weight: 700;
+  }
+
+  + select,
+  + textarea,
+  + input[type="text"] {
+    display: block;
+  }
+}
+
+._form-group {
+  margin-bottom: 1rem;
+
+  .radio {
+    padding-left: .35rem;
+  }
+}
+
+._form-group-label {
+  margin-bottom: 0;
+  font-size: .75rem !important;
+  // to override orquestra global.css
+
+  + .checkbox {
+    margin-top: .5rem;
+  }
+}
+
+._form-stage-2 ._form-group--inline label {
+  min-width: 100px;
+  text-align: right;
+}
+
+._form-group--inline {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  label {
+    font-size: .95rem;
+    margin-right: .5rem;
+    display: block;
+  }
+}
+
+._form-section {
+  border-bottom: 1px solid #ececec;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+._form-title {
+  font-size: 1.05rem;
+
+  &:not(:first-of-type) {
+    margin-top: 2rem;
+  }
+}
+
+._form-subtitle {
+  margin-top: 3rem;
+}
+
+._form {
+
+  input[type="text"],
+  select,
+  textarea {
+    @include make-input;
+  }
+
+  // # Boostrap Adjustments
+  .controls >.radio:first-child,
+  .controls >.checkbox:first-child {
+    padding-top: 0;
+  }
+
+  .control-group-block {
+    .control-label {
+      float: initial;
+      width: initial;
+      text-align: left;
+      margin-left: 65px;
+    }
+
+    .controls {
+      margin-left: 65px;
+    }
+
+    textarea {
+      min-width: 320px;
+    }
+  }
+}
+
+#BtnInsertNewRow {
+  display: block;
+  margin: 0 auto;
+  font-size: 0 !important;
+  outline: 0;
+  box-shadow: none;
+  position: relative;
+  background: initial;
+  border: none;
+  border-radius: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: .75rem;
+
+  &:before {
+    position: absolute;
+    content: "\f359";
+    color: #505050; // #505050
+    font-size: 1.25rem;
+    font-family: "Ionicons";
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+}
+
+button[onclick='DeleteRow(this)'] {
+  font-size: 0 !important;
+  outline: 0;
+  box-shadow: none;
+  position: relative;
+  background: initial;
+  border: none;
+  border-radius: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: .75rem;
+  left: -5px;
+
+  &:before {
+    position: absolute;
+    content: "\f2d7";
+    color: #505050;
+    font-size: 1rem;
+    font-family: "Ionicons";
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  &:hover {
+    background-color: initial;
+    opacity: .75;
+  }
+  &:active,
+  &:focus {
+    box-shadow: none;
+    background-color: initial;
+  }
+}
+
+._form .table thead tr td {
+  background-color: initial;
+  padding: 0;
+  border-bottom: 0;
+  vertical-align: middle;
+}
+
+.table input[type='text'] {
+  width: initial !important;
+  min-width: 100% !important;
+  margin-bottom: 0;
+}
+
+.table {
+  th._small,
+  td._small {
+    max-width: 65px;
+
+    > * {
+      max-width: 65px !important;
+    }
+  }
+}
+
+.table[mult='S'] {
+  th td:first-child,
+  tr td:first-child {
+    width: initial !important;
+    max-width: 25px !important;
+    vertical-align: middle !important;
+  }
+}
+
+._label--big {
+  font-size: .85rem !important;
+  margin-bottom: .25rem;
+}
+
+._error-msg {
+  display: block;
+  color: $red;
+  font-size: .75rem;
+}
+
+.has-error {
+  input[type='text'],
+  input[type='radio']:after {
+    border-color: $red;
+  }
+}
+
+._form-stage-2 ._form-section {
+  display: none;
+}
+
+._form-stage-2 ._form-section[data-group='all'],
+._form-stage-2 ._form-section.is-active {
+  display: block;
+}
+
+.is-partial.is-active[data-group*='--partial'] ._form-group {
+  display: none;
+}
+
+._form-stage-2 ._form-section.is-active[data-group*='--partial'] ._form-group.is-active {
+  display: block;
+}

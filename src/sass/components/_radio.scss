@@ -1,0 +1,59 @@
+// CONFIG
+$radio-size: 18px;
+$radio-bullet-size: 8px;
+$radio-border-size: 1px;
+$radio-border-color: #c2c2c2;
+$radio-bullet-pos: ( $radio-size + $radio-border-size * 2 - $radio-bullet-size )/2;
+$radio-margin-bottom: 10px;
+
+// RADIO INPUT
+@mixin radio-input {
+  position: relative;
+  padding-left: ( $radio-size + $radio-border-size * 2 ) + 6px;
+  margin-bottom: $radio-margin-bottom;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: $radio-size;
+    height: $radio-size;
+    border-radius: 50%;
+    border: $radio-border-size solid $radio-border-color;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: $radio-bullet-pos;
+    top: $radio-bullet-pos;
+    width: $radio-bullet-size;
+    height: $radio-bullet-size;
+    border-radius: 50%;
+    background: $orange;
+    transform: scale(0,0);
+    transition: transform .4s $transition-bounce;
+  }
+
+  > input[type='radio'] {
+    display: none;
+  }
+}
+
+@mixin radio-input--checked {
+  &:before {
+    border-color: $orange;
+  }
+
+  &:after {
+    transform: scale(1,1);
+  }
+}
+
+// DEFAULT CLASSES
+.radio {
+  @include radio-input;
+}
+.radio.-checked {
+  @include radio-input--checked;
+}

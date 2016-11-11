@@ -1,0 +1,105 @@
+/* ==========================================================================
+   PAGE GUTTERS
+   ========================================================================== */
+@mixin page-margin( $size:m ) {
+  @if ( $size == m ) {
+    margin-left: $page-margin-m;
+    margin-right: $page-margin-m;
+  }
+  @else if ( $size == l ) {
+    margin-left: $page-margin-l;
+    margin-right: $page-margin-l;
+  }
+  @else if ( $size == s ) {
+    margin-left: $page-margin-s;
+    margin-right: $page-margin-s;
+  }
+  @else {
+    margin-left: $size;
+    margin-right: $size;
+  }
+}
+
+@mixin page-padding( $size:m ) {
+  @if ( $size == m ) {
+    padding-left: $page-margin-m;
+    padding-right: $page-margin-m;
+  }
+  @else if ( $size == l ) {
+    padding-left: $page-margin-l;
+    padding-right: $page-margin-l;
+  }
+  @else if ( $size == s ) {
+    padding-left: $page-margin-s;
+    padding-right: $page-margin-s;
+  }
+  @else {
+    padding-left: $size;
+    padding-right: $size;
+  }
+}
+
+
+/* ==========================================================================
+   GEOMETRIC
+   ========================================================================== */
+@mixin rectangle( $x, $y:$x ) {
+  width: $x;
+  height: $y;
+}
+
+
+/* ==========================================================================
+   BOX MODEL
+   ========================================================================== */
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+
+/* ==========================================================================
+   FLEX BOX
+   ========================================================================== */
+
+
+
+/* ==========================================================================
+   ALIGNMENT
+   ========================================================================== */
+@mixin center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin center-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin center-h-absolute {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin center-v-absolute {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin center-flex-v {
+  display: flex;
+  align-items: center;
+}

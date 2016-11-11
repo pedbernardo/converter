@@ -1,0 +1,103 @@
+// CONFIG
+$checkbox-size: 15px;
+$checkbox-icon-size: 12px;
+$checkbox-icon-font: "Ionicons";
+$checkbox-border-size: 1px;
+$checkbox-border-color: #c2c2c2;
+$checkbox-icon-left-pos: ceil(( $checkbox-size + $checkbox-border-size * 2 - $checkbox-icon-size )/2 );
+$checkbox-icon-top-pos: - ( $checkbox-size + $checkbox-border-size * 2 - $checkbox-icon-size )/4;
+// .-small
+$checkbox-size--small: 12px;
+$checkbox-pos--small: 2px;
+$checkbox-icon-size--small: 9px;
+$checkbox-icon-left-pos--small: 3px;
+$checkbox-icon-top-pos--small: -2px + $checkbox-pos--small;
+
+// CHECKBOX INPUT
+@mixin checkbox-input {
+  position: relative;
+  padding-left: ( $checkbox-size + $checkbox-border-size * 2 ) + 5px;
+  outline: 0;
+  box-shadow: none;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: $checkbox-size;
+    height: $checkbox-size;
+    border: $checkbox-border-size solid $checkbox-border-color;
+    background-color: #fff;
+
+    &:focus {
+      border-color: $orange;
+    }
+  }
+
+  &:after {
+    content: '\f122';
+    position: absolute;
+    left: $checkbox-icon-left-pos;
+    top: $checkbox-icon-top-pos;
+    font-size: $checkbox-icon-size;
+    font-family: $checkbox-icon-font;
+    color: $orange;
+    transform: scale(0,0);
+    transition: transform .4s $transition-bounce;
+  }
+
+  > input[type='checkbox'] {
+    display: none;
+  }
+}
+
+// CHECKBOX VARIANTES
+// .-checked
+@mixin checkbox-input--checked {
+  &:after {
+    transform: scale(1,1);
+  }
+}
+
+// .-inverted
+@mixin checkbox-input--inverted {
+  &:before {
+    background-color: lighten( $orange, 10% );
+    border-color: $orange;
+  }
+  &:after {
+    color: #fff;
+  }
+}
+
+// .-small
+@mixin checkbox-input--small {
+  font-size: .75rem;
+
+  &:before {
+    width: $checkbox-size--small;
+    height: $checkbox-size--small;
+    top: $checkbox-pos--small;
+  }
+  &:after {
+    left: $checkbox-icon-left-pos--small;
+    top: $checkbox-icon-top-pos--small;
+    font-size: $checkbox-icon-size--small;
+  }
+}
+
+// DEFAULT CLASSES
+.checkbox {
+  @include checkbox-input;
+}
+.checkbox.-checked {
+  @include checkbox-input--checked;
+}
+
+.checkbox.-inverted.-checked {
+  @include checkbox-input--inverted;
+}
+
+.checkbox.-small {
+  @include checkbox-input--small;
+}

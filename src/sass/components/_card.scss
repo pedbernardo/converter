@@ -1,0 +1,22 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 3px 3px 0 rgba(0,0,0,.105);
+
+  > .title {
+    text-align: center;
+  }
+  
+  > .content {
+    flex: 1;
+
+    p {
+      font-size: .85rem;
+    }
+  }
+
+  > .controls {
+    display: flex;
+  }
+}

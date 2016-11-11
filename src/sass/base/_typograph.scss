@@ -1,0 +1,29 @@
+body {
+  font-family: $font-primary;
+}
+
+._title {
+  font-size: $title-size;
+  margin-bottom: $title-margin;
+  font-family: $font-secondary;
+}
+
+._title--underscore {
+  position: relative;
+
+  &:after {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $orange;
+    width: 90px;
+    height: 5px;
+    content: '';
+    bottom: -1rem;
+  }
+}
+
+._subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
